@@ -1,0 +1,3 @@
+[submodule "libraries/libft"]
+	path = libraries/libft
+	url = https://github.com/lsivolella/42-libft.git
