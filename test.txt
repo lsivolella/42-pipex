@@ -1,2 +1,7 @@
+Test5
 ./pipex file1 "cat" "grep x" output/outfile5
 < file1 cat | grep x > output/outfile5
+
+Test8
+./pipex infile "catzado" "wc -w" outfile
+< infile catzado | wc -w > outfile

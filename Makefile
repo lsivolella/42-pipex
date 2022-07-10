@@ -6,7 +6,7 @@
 #    By: lgoncalv <lgoncalv@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/19 12:05:54 by lgoncalv          #+#    #+#              #
-#    Updated: 2022/07/09 21:13:36 by lgoncalv         ###   ########.fr        #
+#    Updated: 2022/07/10 14:53:11 by lgoncalv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,9 +59,9 @@ $(LIBFT):
 	@$(MAKE) -C $(LIBFT_DIR)
 
 clean:
-	@$(RM) infile outfile
 	@$(MAKE) -C $(LIBFT_DIR) clean
 	@$(RM) $(OBJECTS)
+# @$(RM) infile outfile
 
 fclean: clean
 	@$(MAKE) -C $(LIBFT_DIR) fclean

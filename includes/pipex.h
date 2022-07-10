@@ -6,7 +6,7 @@
 /*   By: lgoncalv <lgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/19 12:03:35 by lgoncalv          #+#    #+#             */
-/*   Updated: 2022/07/09 21:47:24 by lgoncalv         ###   ########.fr       */
+/*   Updated: 2022/07/10 12:39:11 by lgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,9 @@ typedef struct s_args
 
 typedef struct s_pipex
 {
-	int		infile;
-	int		outfile;
+	int		infile_fd;
+	int		infile_access;
+	int		outfile_fd;
 	t_args	input;
 }	t_pipex;
 
