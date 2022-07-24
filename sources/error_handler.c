@@ -6,18 +6,25 @@
 /*   By: lgoncalv <lgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/09 10:28:43 by lgoncalv          #+#    #+#             */
-/*   Updated: 2022/07/10 17:47:43 by lgoncalv         ###   ########.fr       */
+/*   Updated: 2022/07/23 17:14:41 by lgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
+void	get_error_msg(char *error, char *var)
+{
+	ft_putstr_fd(error, STDERR_FILENO);
+	ft_putstr_fd(": ", STDERR_FILENO);
+	ft_putendl_fd(var, STDERR_FILENO);
+}
+
 static void	print_error(t_error e_code)
 {
 	if (e_code == e_no_arg)
-		ft_putstr_fd(P_NO_ARG, 1);
+		ft_putstr_fd(P_NO_ARG, STDERR_FILENO);
 	else if (e_code == e_invalid_arg)
-		ft_putstr_fd(P_INVALID_ARG, 1);
+		ft_putstr_fd(P_INVALID_ARG, STDERR_FILENO);
 	else if (e_code == e_pipe)
 		perror(P_PIPE);
 	else if (e_code == e_fork)
@@ -26,32 +33,18 @@ static void	print_error(t_error e_code)
 		perror(P_WRITE);
 	else if (e_code == e_read)
 		perror(P_READ);
-	else if (e_code == e_create_infile)
-	{
-		printf("Errror creating infile\n");
-		//strerror(errno);
-		perror(P_CREATE_INFILE);
-	}
-	else if (e_code == e_open_infile)
-	{
-		printf("Errror opening infile\n");
-		perror(P_OPEN_INFILE);
-	}
-	else if (e_code == e_open_outfile)
-		perror(P_OPEN_OUTFILE);
 	else if (e_code == e_invalid_command)
-	{
-		//ft_putstr_fd("Invalid command error printing here\n", 2);
 		perror(P_INVALID_COMMNAND);
-	}
+	else if (e_code == e_dup2)
+		perror(P_DUP2);
 	if (e_code == e_no_arg || e_code == e_invalid_arg)
-		ft_putstr_fd(P_HOW_TO_USE, 1);
+		ft_putstr_fd(P_HOW_TO_USE, STDERR_FILENO);
 }
 
 void	get_error(t_error e_code)
 {
 	if (e_code == e_none)
-		ft_putstr_fd(P_NONE, 1);
+		ft_putstr_fd(P_NONE, STDERR_FILENO);
 	else
 		print_error(e_code);
 }
@@ -59,6 +52,5 @@ void	get_error(t_error e_code)
 void	exit_with_error(t_error e_code)
 {
 	get_error(e_code);
-	printf("Exit with code 1\n");
 	exit(1);
 }

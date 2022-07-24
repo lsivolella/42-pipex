@@ -6,7 +6,7 @@
 /*   By: lgoncalv <lgoncalv@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/14 16:09:45 by lgoncalv          #+#    #+#             */
-/*   Updated: 2022/07/10 17:49:09 by lgoncalv         ###   ########.fr       */
+/*   Updated: 2022/07/23 17:14:48 by lgoncalv         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,8 @@
 # define P_FORK				"Failed to fork process"
 # define P_WRITE			"Failed to write to pipe"
 # define P_READ				"Failed to read from pipe"
-# define P_CREATE_INFILE	"Failed to cleate infile"
-# define P_OPEN_INFILE		"Failed to open infile"
-# define P_OPEN_OUTFILE		"Failed to open outfile"
-# define P_INVALID_COMMNAND	"Invalid command"
+# define P_INVALID_COMMNAND	"command not found"
+# define P_DUP2				"Failed to duplicate file descriptor"
 
 typedef enum e_error
 {
@@ -38,12 +36,11 @@ typedef enum e_error
 	e_fork				= 40,
 	e_write				= 50,
 	e_read				= 60,
-	e_create_infile		= 70,
-	e_open_infile		= 80,
-	e_open_outfile		= 90,
+	e_dup2				= 70,
 	e_invalid_command	= 100
 }	t_error;
 
+void	get_error_msg(char *error, char *var);
 void	get_error(t_error e_arg);
 void	exit_with_error(t_error e_code);
 

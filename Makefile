@@ -6,7 +6,7 @@
 #    By: lgoncalv <lgoncalv@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/19 12:05:54 by lgoncalv          #+#    #+#              #
-#    Updated: 2022/07/10 14:53:11 by lgoncalv         ###   ########.fr        #
+#    Updated: 2022/07/23 22:00:47 by lgoncalv         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,8 +35,10 @@ NAME			= pipex
 LIBFT		= $(LIBFT_DIR)/libft.a
 
 # SOURCES
-SOURCES			= main.c\
-				error_handler.c
+SOURCES			= commands.c\
+				error_handler.c\
+				main.c\
+				utils.c
 SOURCES			:= $(addprefix $(SOURCES_DIR)/,$(SOURCES))
 
 # OBJECTS

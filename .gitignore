@@ -1,4 +1,6 @@
 pipex
 infile
 outfile
+objects/
 pipex-tester
+pipex-tester-2
